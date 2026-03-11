@@ -71,8 +71,6 @@ class HotelRoom:
             raise ValueError("Nights must be positive")
         return self.price_per_night * nights
 
-
-# Sesión de ejemplo
 room = HotelRoom(101, 2, 80)
 
 print(room.status()) 
