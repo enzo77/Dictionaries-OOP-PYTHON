@@ -1,0 +1,67 @@
+{
+  "productos": [
+    {
+      "id": 1,
+      "nombre": "Laptop Pro",
+      "precio": 1299.99,
+      "stock": 8,
+      "categoria": "electronica"
+    },
+    {
+      "id": 2,
+      "nombre": "Teclado RGB",
+      "precio": 89.99,
+      "stock": 25,
+      "categoria": "electronica"
+    },
+    {
+      "id": 3,
+      "nombre": "Silla Ergon.",
+      "precio": 349.0,
+      "stock": 5,
+      "categoria": "mobiliario"
+    },
+    {
+      "id": 4,
+      "nombre": "Monitor 27\"",
+      "precio": 449.99,
+      "stock": 12,
+      "categoria": "electronica"
+    },
+    {
+      "id": 5,
+      "nombre": "Escritorio Oak",
+      "precio": 599.0,
+      "stock": 3,
+      "categoria": "mobiliario"
+    },
+    {
+      "nombre": "Mouse Inalambrico",
+      "precio": 39.99,
+      "stock": 20,
+      "categoria": "electronica",
+      "id": 6
+    },
+    {
+      "nombre": "Mouse Inalambrico",
+      "precio": 39.99,
+      "stock": 20,
+      "categoria": "electronica",
+      "id": 7
+    },
+    {
+      "nombre": "Mouse Inalambrico",
+      "precio": 39.99,
+      "stock": 20,
+      "categoria": "electronica",
+      "id": 8
+    },
+    {
+      "nombre": "Mouse Inalambrico",
+      "precio": 39.99,
+      "stock": 20,
+      "categoria": "electronica",
+      "id": 9
+    }
+  ]
+}

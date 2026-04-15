@@ -1,33 +1,56 @@
-class Employee:
-    """
-    Representa un empleado con su nombre y salario.
+class Book:
+    def __init__(self, isbn, title, author):
+        self.isbn = isbn
+        self.title = title
+        self.author = author
 
-    Attributes:
-        name   (str):   Nombre del empleado.
-        salary (float): Salario actual del empleado.
-    """
+class User:
+    def __init__(self, name, dni, age):
+        self.name = name
+        self.dni = dni
+        self.age = age
 
-    def __init__(self, name, salary):
-        
-        self.name   = name
-        self.salary = salary
+class Library:
+    def __init__(self, name, city):
+        self.name = name
+        self.city = city
+        self.books = []
+        self.loans = {}
 
-    def raise_salary(self, percent):
+    def add_book(self, book):
+        self.books.append(book)
 
-        if percent <= 0:
-            raise ValueError("Percent must be positive")
-        self.salary = self.salary * (1 + percent / 100)
+    def find_book(self, title):
+        for book in self.books:
+            if book.title == title:
+                return book
+        return None
 
-    def get_salary(self):
+    def lend_book(self, title, user):
+        book = self.find_book(title)
+        if book:
+            self.loans[user.dni] = book
 
-        return self.salary
+    def return_book(self, title, user):
+        if user.dni in self.loans:
+            del self.loans[user.dni]
+            
+lib = Library("Central Library", "Barcelona")
 
+b1 = Book("9780441172719", "Dune", "Frank Herbert")
+b2 = Book("9780451524935", "1984", "George Orwell")
 
-# Sesión de ejemplo
-e = Employee("Laura", 30000)
-print(e.get_salary())   
+u1 = User("Alice", "12345678A", 30)
+u2 = User("Bob", "87654321B", 25)
 
-e.raise_salary(10)
-print(e.get_salary())  
+lib.add_book(b1)
+lib.add_book(b2)
 
-e.raise_salary(-5)      
+lib.add_book(Book("9780261103573", "The Hobbit", "J.R.R. Tolkien"))
+
+lib.lend_book("Dune", u1)
+lib.return_book("Dune", u1)
+
+book = lib.find_book("1984")
+
+print(f"book" , {lib})
