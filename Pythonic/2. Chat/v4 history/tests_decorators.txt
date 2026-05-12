@@ -1,0 +1,44 @@
+>>> from decorators import censor_words
+>>> @censor_words(["bad", "ugly"])
+... def echo(message):
+...     return message
+...
+
+# Exact matches.
+>>> echo("This is bad")
+'This is ***'
+
+>>> echo("The weather is ugly today")
+'The weather is *** today'
+
+# Multiple forbidden words.
+>>> echo("bad and ugly words")
+'*** and *** words'
+
+# Multiple occurrences of the same word.
+>>> echo("bad bad bad")
+'*** *** ***'
+
+# Case-insensitive replacement.
+>>> echo("BAD")
+'***'
+
+>>> echo("This is BaD")
+'This is ***'
+
+>>> echo("UGLY and bad")
+'*** and ***'
+
+# Substring matches are also censored.
+>>> echo("badly done")
+'***ly done'
+
+>>> echo("superbad example")
+'super*** example'
+
+>>> echo("UgLiNeSs")
+'***ness'
+
+# No forbidden words.
+>>> echo("Everything is fine")
+'Everything is fine'

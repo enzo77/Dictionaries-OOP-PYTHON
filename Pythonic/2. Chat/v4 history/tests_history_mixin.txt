@@ -1,0 +1,37 @@
+>>> import os
+>>> from history_mixin import HistoryMixin
+
+>>> class Dummy(HistoryMixin):
+...     pass
+
+>>> filename = "test_history.txt"
+
+# Remove the file if it already exists.
+>>> if os.path.exists(filename):
+...     os.remove(filename)
+
+# Create an object that inherits from the mixin.
+>>> dummy = Dummy()
+
+# Start a new history session.
+>>> dummy.start_history_session(filename)
+
+# Append some messages.
+>>> dummy.save_to_history("Hello\n")
+>>> dummy.save_to_history("World\n")
+
+# Read the file and check that the messages were stored.
+>>> with open(filename, "r", encoding="utf-8") as file:
+...     content = file.read()
+
+>>> "Session:" in content
+True
+
+>>> "Hello" in content
+True
+
+>>> "World" in content
+True
+
+# Clean up.
+>>> os.remove(filename)

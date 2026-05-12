@@ -1,0 +1,24 @@
+>>> from user_repository import UserRepository
+>>> import os
+>>> if os.path.exists("users.db"):
+...     os.remove("users.db")
+>>> repo = UserRepository("users.db")
+>>> repo.add_user("alice", "1234")
+True
+>>> repo.add_user("bob", "abcd")
+True
+>>> repo.validate_user("alice", "1234")
+True
+>>> repo.validate_user("alice", "wrong")
+False
+>>> repo.validate_user("charlie", "python")
+False
+>>> repo.list_users()
+[('alice', '1234'), ('bob', 'abcd')]
+>>> repo.delete_user("alice")
+>>> repo.list_users()
+[('bob', 'abcd')]
+>>> repo.validate_user("alice", "1234")
+False
+>>> repo.add_user("alice", "1234")
+True

@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python -m doctest tests_user_repository.txt -v)"
+    ]
+  }
+}
